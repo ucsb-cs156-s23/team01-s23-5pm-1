@@ -1,50 +1,41 @@
-const restaurantFixtures = {
-    oneRestaurant:
+const bookFixtures = {
+    oneBook:
     [
       {
        "id": 1,
-        "name": "The Habit",
-        "address": "888 Embarcadero del Norte",
-        "city": "Isla Vista",
-        "state": "CA",
-        "zip": "93117",
-        "description": "Burgers and Fries"      
+       "title": "The Great Gatsby",
+       "author": "F. Scott Fitzgerald",
+       "year": "1925"
+        
       }
     ],
 
-    threeRestaurants:
+    threeBooks:
     [
         {
             "id": 2,
-             "name": "Cristino's Bakery",
-             "address": "170 Aero Camino",
-             "city": "Goleta",
-             "state": "CA",
-             "zip": "93117",
-             "description": "This place is takeout only.  It may look mostly like a bakery with Mexican pastries, but it also has amazing burritos and tacos",      
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "year": "1960"
+
         },
 
         {
             "id": 3,
-             "name": "Freebirds",
-             "address": "879 Embarcadero del Norte",
-             "city": "Isla Vista",
-             "state": "CA",
-             "zip": "93117",
-             "description": "Burrito joint, and iconic Isla Vista location"  
+            "title": "The Catcher in the Rye",
+            "author": "J. D. Salinger",
+            "year": "1951"
+
         },
 
         {
             "id": 4,
-             "name": "Ca' Dario Cucina Italiana",
-             "address": "250 Storke Rd #B",
-             "city": "Goleta",
-             "state": "CA",
-             "zip": "93117",
-             "description": "White tablecloth Italian restaurant, with great pasta and pizza"      
+            "title": "The Grapes of Wrath",
+            "author": "John Steinbeck",
+            "year": "1939"
         },
         
     ]
 };
 
-export { restaurantFixtures };
+export { bookFixtures };
