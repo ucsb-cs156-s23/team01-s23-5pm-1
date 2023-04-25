@@ -2,7 +2,8 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import CourseTable from 'main/components/Courses/CourseTable';
-import { courseUtils } from 'main/utils/courseUtils';
+import { courseUtilities } from 'main/utils/courseUtilities';
+
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function CourseIndexPage() {

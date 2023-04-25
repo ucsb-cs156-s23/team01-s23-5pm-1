@@ -1,7 +1,7 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
 import CourseTable from 'main/components/Courses/CourseTable';
-import { courseUtils } from 'main/utils/courseUtils';
+import { courseUtilitiess } from 'main/utils/courseUtilities';
 
 export default function CourseDetailsPage() {
   let { id } = useParams();
