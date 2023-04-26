@@ -59,7 +59,7 @@ describe("BookEditPage tests", () => {
             </QueryClientProvider>
         );
 
-        expect(screen.getByTestId("BookForm-name")).toBeInTheDocument();
+        expect(screen.getByTestId("BookForm-id")).toBeInTheDocument();
         expect(screen.getByDisplayValue('Harry Potter')).toBeInTheDocument();
         expect(screen.getByDisplayValue('J. K. Rowling')).toBeInTheDocument();
         expect(screen.getByDisplayValue('1997')).toBeInTheDocument();
