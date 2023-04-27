@@ -58,13 +58,13 @@ function CourseForm({ initialContents, submitAction, buttonLabel = "Create" }) {
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="course_number">Course Number</Form.Label>
+                <Form.Label htmlFor="courseNumber">Course Number</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-course_number"}
-                    id="course_number"
+                    data-testid={testIdPrefix + "-courseNumber"}
+                    id="courseNumber"
                     type="text"
                     isInvalid={Boolean(errors.course_number)}
-                    {...register("course_number", {
+                    {...register("courseNumber", {
                         required: "Course Number is required."
                     })}
                 />
@@ -74,13 +74,13 @@ function CourseForm({ initialContents, submitAction, buttonLabel = "Create" }) {
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="department">Department</Form.Label>
+                <Form.Label htmlFor="Department">Department</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-department"}
-                    id="department"
+                    data-testid={testIdPrefix + "-Department"}
+                    id="Department"
                     type="text"
                     isInvalid={Boolean(errors.department)}
-                    {...register("department", {
+                    {...register("Department", {
                         required: "Department is required."
                     })}
                 />
