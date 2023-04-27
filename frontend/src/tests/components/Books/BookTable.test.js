@@ -16,7 +16,7 @@ describe("BookTable tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = ["id", "Title", "Author"];
-  const expectedFields = ["id", "tite", "author"];
+  const expectedFields = ["id", "title", "author"];
   const testId = "BookTable";
 
   test("showCell function works properly", () => {
@@ -206,7 +206,7 @@ describe("BookTable tests", () => {
      // assert - check that the console.log was called with the expected message
      await(waitFor(() => expect(console.log).toHaveBeenCalled()));
      const message = console.log.mock.calls[0][0];
-     const expectedMessage = `detailsCallback: {"id":2,"title":"To Kill a Mockingbird","author":"Harper Lee"})`;
+     const expectedMessage = `deleteCallback: {"id":2,"title":"To Kill a Mockingbird","author":"Harper Lee"})`;
      expect(message).toMatch(expectedMessage);
      restoreConsole();
   });
