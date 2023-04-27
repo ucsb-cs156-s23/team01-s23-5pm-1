@@ -1,14 +1,14 @@
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useNavigate } from "react-router-dom";
-import { carUtils } from "main/utils/carUtils";
+import { carUtilities } from "main/utils/carUtils";
 
 const showCell = (cell) => JSON.stringify(cell.row.values);
 
 
 const defaultDeleteCallback = async (cell) => {
     console.log(`deleteCallback: ${showCell(cell)})`);
-    carUtils.del(cell.row.values.id);
+    carUtilities.del(cell.row.values.id);
 }
 
 export default function CarTable({
