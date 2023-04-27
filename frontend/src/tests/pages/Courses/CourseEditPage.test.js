@@ -58,7 +58,7 @@ describe("CourseEditPage tests", () => {
                 </MemoryRouter>
             </QueryClientProvider>
         );
-
+//
         expect(screen.getByTestId("CourseForm-id")).toBeInTheDocument();
         expect(screen.getByDisplayValue('CMPSC 156 - ADV APP PROGRAM')).toBeInTheDocument();
         expect(screen.getByDisplayValue('07427')).toBeInTheDocument();
