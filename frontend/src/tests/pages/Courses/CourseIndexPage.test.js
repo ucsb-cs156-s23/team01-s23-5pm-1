@@ -11,7 +11,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const mockDelete = jest.fn();
-jest.mock('main/utils/courseUtilitiess', () => {
+jest.mock('main/utils/courseUtilities', () => {
     return {
         __esModule: true,
         courseUtilitiess: {
@@ -108,7 +108,7 @@ describe("CourseIndexPage tests", () => {
         const expectedMessage = `CourseIndexPage deleteCallback: {"id":1,"title": "CMPSC 156 - ADV APP PROGRAM","courseNumber": "07427","Department": "Computer Science",}`;
         expect(message).toMatch(expectedMessage);
         restoreConsole();
-        
+
 
     });
 

@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockNavigate
 }));
 
-jest.mock('main/utils/courseUtilitiess', () => {
+jest.mock('main/utils/courseUtilities', () => {
     return {
         __esModule: true,
         courseUtilitiess: {
