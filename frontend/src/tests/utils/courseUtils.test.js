@@ -1,5 +1,5 @@
 import { courseFixtures } from "fixtures/courseFixtures";
-import { courseUtilities } from "main/utils/courseUtilities";
+import { courseUtilities } from "main/utils/courseUtils";
 
 describe("courseUtilities tests", () => {
     // return a function that can be used as a mock implementation of getItem

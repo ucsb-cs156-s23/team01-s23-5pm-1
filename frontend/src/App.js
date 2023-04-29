@@ -15,6 +15,16 @@ import BookEditPage from "main/pages/Books/BookEditPage";
 import BookIndexPage from "main/pages/Books/BookIndexPage";
 import BookDetailsPage from "main/pages/Books/BookDetailsPage";
 
+import CourseCreatePage from "main/pages/Courses/CourseCreatePage";
+import CourseEditPage from "main/pages/Courses/CourseEditPage";
+import CourseIndexPage from "main/pages/Courses/CourseIndexPage";
+import CourseDetailsPage from "main/pages/Courses/CourseDetailsPage";
+
+import CarCreatePage from "main/pages/Cars/CarCreatePage";
+import CarEditPage from "main/pages/Cars/CarEditPage";
+import CarIndexPage from "main/pages/Cars/CarIndexPage";
+import CarDetailsPage from "main/pages/Cars/CarDetailsPage";
+
 function App() {
 
   const reload = () => window.location.reload();
@@ -38,6 +48,16 @@ function App() {
         <Route exact path="/books/edit/:id" element={<BookEditPage />} />
         <Route exact path="/books/details/:id" element={<BookDetailsPage />} />
         <Route exact path="/books/" element={<BookIndexPage />} />
+
+        <Route exact path="/courses/create" element={<CourseCreatePage />} />
+        <Route exact path="/courses/edit/:id" element={<CourseEditPage />} />
+        <Route exact path="/courses/details/:id" element={<CourseDetailsPage />} />
+        <Route exact path="/courses/" element={<CourseIndexPage />} />
+
+        <Route exact path="/cars/create" element={<CarCreatePage />} />
+        <Route exact path="/cars/edit/:id" element={<CarEditPage />} />
+        <Route exact path="/cars/details/:id" element={<CarDetailsPage />} />
+        <Route exact path="/cars/" element={<CarIndexPage />} />
 
       </Routes>
     </BrowserRouter>

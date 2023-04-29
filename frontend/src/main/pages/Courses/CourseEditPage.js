@@ -1,7 +1,7 @@
 
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
-import { courseUtilities }  from 'main/utils/courseUtilities';
+import { courseUtils }  from 'main/utils/courseUtils';
 import CourseForm from 'main/components/Courses/CourseForm';
 import { useNavigate } from 'react-router-dom'
 
@@ -11,10 +11,10 @@ export default function CourseEditPage() {
 
     let navigate = useNavigate(); 
 
-    const response = courseUtilities.getById(id);
+    const response = courseUtils.getById(id);
 
     const onSubmit = async (course) => {
-        const updatedCourse = courseUtilities.update(course);
+        const updatedCourse = courseUtils.update(course);
         console.log("updatedCourse: " + JSON.stringify(updatedCourse));
         navigate("/courses");
     }  

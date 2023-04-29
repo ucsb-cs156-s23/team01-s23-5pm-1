@@ -2,21 +2,21 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import CarTable from 'main/components/Cars/CarTable';
-import { carUtilities } from 'main/utils/carUtils';
+import { carUtils } from 'main/utils/carUtils';
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function CarIndexPage() {
 
     const navigate = useNavigate();
 
-    const carCollection = carUtilities.get();
+    const carCollection = carUtils.get();
     const cars = carCollection.cars;
 
     const showCell = (cell) => JSON.stringify(cell.row.values);
 
     const deleteCallback = async (cell) => {
         console.log(`CarIndexPage deleteCallback: ${showCell(cell)})`);
-        carUtilities.del(cell.row.values.id);
+        carUtils.del(cell.row.values.id);
         navigate("/cars");
     }
 

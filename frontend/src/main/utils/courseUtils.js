@@ -72,7 +72,7 @@ const del = (id) => {
     return { courseCollection: courseCollection };
 };
 
-const courseUtilities = {
+const courseUtils = {
     get,
     getById,
     add,
@@ -80,4 +80,4 @@ const courseUtilities = {
     del
 };
 
-export { courseUtilities };
+export { courseUtils };
