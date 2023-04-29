@@ -1,7 +1,7 @@
 import { courseFixtures } from "fixtures/courseFixtures";
-import { courseUtilities } from "main/utils/courseUtilities";
+import { courseUtils } from "main/utils/courseUtils";
 
-describe("courseUtilities tests", () => {
+describe("courseUtils tests", () => {
     // return a function that can be used as a mock implementation of getItem
     // the value passed in will be convertd to JSON and returned as the value
     // for the key "courses".  Any other key results in an error
@@ -25,7 +25,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.get();
+            const result = courseUtils.get();
 
             // assert
             const expected = { nextId: 1, courses: [] } ;
@@ -45,7 +45,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.get();
+            const result = courseUtils.get();
 
             // assert
             const expected = { nextId: 1, courses: [] } ;
@@ -65,7 +65,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.get();
+            const result = courseUtils.get();
 
             // assert
             const expected = { nextId: 1, courses: [] };
@@ -87,7 +87,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.get();
+            const result = courseUtils.get();
 
             // assert
             expect(result).toEqual(mockCourseCollection);
@@ -107,7 +107,7 @@ describe("courseUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, courses: threeCourses }));
 
             // act
-            const result = courseUtilities.getById(idToGet);
+            const result = courseUtils.getById(idToGet);
 
             // assert
 
@@ -124,7 +124,7 @@ describe("courseUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, courses: threeCourses }));
 
             // act
-            const result = courseUtilities.getById(99);
+            const result = courseUtils.getById(99);
 
             // assert
             const expectedError = `course with id 99 not found`
@@ -140,7 +140,7 @@ describe("courseUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, courses: threeCourses }));
 
             // act
-            const result = courseUtilities.getById();
+            const result = courseUtils.getById();
 
             // assert
             const expectedError = `id is a required parameter`
@@ -160,7 +160,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.add(course);
+            const result = courseUtils.add(course);
 
             // assert
             expect(result).toEqual(course);
@@ -191,7 +191,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.update(updatedCourse);
+            const result = courseUtils.update(updatedCourse);
 
             // assert
             const expected = { courseCollection: { nextId: 5, courses: threeCoursesUpdated } };
@@ -216,7 +216,7 @@ describe("courseUtilities tests", () => {
             }
 
             // act
-            const result = courseUtilities.update(updatedCourse);
+            const result = courseUtils.update(updatedCourse);
 
             // assert
             const expectedError = `course with id 99 not found`
@@ -243,7 +243,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.del(idToDelete);
+            const result = courseUtils.del(idToDelete);
 
             // assert
 
@@ -263,7 +263,7 @@ describe("courseUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = courseUtilities.del(99);
+            const result = courseUtils.del(99);
 
             // assert
             const expectedError = `course with id 99 not found`
@@ -279,7 +279,7 @@ describe("courseUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, courses: threeCourses }));
 
             // act
-            const result = courseUtilities.del();
+            const result = courseUtils.del();
 
             // assert
             const expectedError = `id is a required parameter`

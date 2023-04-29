@@ -1,14 +1,14 @@
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useNavigate } from "react-router-dom";
-import { courseUtilities } from "main/utils/courseUtilities";
+import { courseUtils } from "main/utils/courseUtils";
 
 const showCell = (cell) => JSON.stringify(cell.row.values);
 
 
 const defaultDeleteCallback = async (cell) => {
     console.log(`deleteCallback: ${showCell(cell)})`);
-    courseUtilities.del(cell.row.values.id);
+    courseUtils.del(cell.row.values.id);
 }
 
 export default function CourseTable({

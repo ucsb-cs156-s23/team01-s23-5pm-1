@@ -21,7 +21,7 @@ const courseFixtures = {
             {
                 "id": 3,
                 "title": "ENGL 24 - LOCAL AND GLOBAL",
-                "courseNumber": "18051 ",
+                "courseNumber": "18051",
                 "Department": "Isla Vista",
             },
             {

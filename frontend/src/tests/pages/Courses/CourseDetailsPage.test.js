@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import CarDetailsPage from "main/pages/Cars/CarDetailsPage";
+import CourseDetailsPage from "main/pages/Courses/CourseDetailsPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -12,16 +12,16 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockNavigate
 }));
 
-jest.mock('main/utils/carUtils', () => {
+jest.mock('main/utils/courseUtils', () => {
     return {
         __esModule: true,
-        carUtils: {
+        courseUtils: {
             getById: (_id) => {
                 return {
-                    car: {
-                        id: 3,
-                        make: "Ford",
-                        model: "Mustang"
+                    course:             {
+                        "id": 3,
+                        "title": "ENGL 24 - LOCAL AND GLOBAL",
+                        "courseNumber": "18051"
                     }
                 }
             }
@@ -29,14 +29,14 @@ jest.mock('main/utils/carUtils', () => {
     }
 });
 
-describe("CarDetailsPage tests", () => {
+describe("CourseDetailsPage tests", () => {
 
     const queryClient = new QueryClient();
     test("renders without crashing", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <CarDetailsPage />
+                    <CourseDetailsPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
@@ -46,12 +46,12 @@ describe("CarDetailsPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <CarDetailsPage />
+                    <CourseDetailsPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
-        expect(screen.getByText("Ford")).toBeInTheDocument();
-        expect(screen.getByText("Mustang")).toBeInTheDocument();
+        expect(screen.getByText("ENGL 24 - LOCAL AND GLOBAL")).toBeInTheDocument();
+        expect(screen.getByText("18051")).toBeInTheDocument();
 
         expect(screen.queryByText("Delete")).not.toBeInTheDocument();
         expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -59,3 +59,5 @@ describe("CarDetailsPage tests", () => {
     });
 
 });
+
+

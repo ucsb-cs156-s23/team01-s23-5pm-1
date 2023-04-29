@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import CarIndexPage from "main/pages/Cars/CarIndexPage";
+import CourseIndexPage from "main/pages/Courses/CourseIndexPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import mockConsole from "jest-mock-console";
@@ -11,23 +11,22 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const mockDelete = jest.fn();
-jest.mock('main/utils/carUtils', () => {
+jest.mock('main/utils/courseUtils', () => {
     return {
         __esModule: true,
-        carUtils: {
+        courseUtils: {
             del: (id) => {
                 return mockDelete(id);
             },
             get: () => {
                 return {
                     nextId: 5,
-                    cars: [
+                    courses: [
                         {
                             "id": 3,
-                            "make": "Ford",
-                            "model": "Mustang",
-                            "year": "1969"
-                        },
+                            "title": "ENGL 24 - LOCAL AND GLOBAL",
+                            "courseNumber": "18051"
+                        }
                     ]
                 }
             }
@@ -36,14 +35,14 @@ jest.mock('main/utils/carUtils', () => {
 });
 
 
-describe("CarIndexPage tests", () => {
+describe("CourseIndexPage tests", () => {
 
     const queryClient = new QueryClient();
     test("renders without crashing", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <CarIndexPage />
+                    <CourseIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
@@ -53,24 +52,24 @@ describe("CarIndexPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <CarIndexPage />
+                    <CourseIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
 
-        const createCarButton = screen.getByText("Create Car");
-        expect(createCarButton).toBeInTheDocument();
-        expect(createCarButton).toHaveAttribute("style", "float: right;");
+        const createCourseButton = screen.getByText("Create Course");
+        expect(createCourseButton).toBeInTheDocument();
+        expect(createCourseButton).toHaveAttribute("style", "float: right;");
 
-        const make = screen.getByText("Ford");
-        expect(make).toBeInTheDocument();
+        const title = screen.getByText("ENGL 24 - LOCAL AND GLOBAL");
+        expect(title).toBeInTheDocument();
 
-        const model = screen.getByText("Mustang");
-        expect(model).toBeInTheDocument();
+        const courseNumber = screen.getByText("18051");
+        expect(courseNumber).toBeInTheDocument();
 
-        expect(screen.getByTestId("CarTable-cell-row-0-col-Delete-button")).toBeInTheDocument();
-        expect(screen.getByTestId("CarTable-cell-row-0-col-Details-button")).toBeInTheDocument();
-        expect(screen.getByTestId("CarTable-cell-row-0-col-Edit-button")).toBeInTheDocument();
+        expect(screen.getByTestId("CourseTable-cell-row-0-col-Delete-button")).toBeInTheDocument();
+        expect(screen.getByTestId("CourseTable-cell-row-0-col-Details-button")).toBeInTheDocument();
+        expect(screen.getByTestId("CourseTable-cell-row-0-col-Edit-button")).toBeInTheDocument();
     });
 
     test("delete button calls delete and reloads page", async () => {
@@ -80,18 +79,18 @@ describe("CarIndexPage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <CarIndexPage />
+                    <CourseIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
 
-        const name = screen.getByText("Ford");
-        expect(name).toBeInTheDocument();
+        const title = screen.getByText("ENGL 24 - LOCAL AND GLOBAL");
+        expect(title).toBeInTheDocument();
 
-        const description = screen.getByText("Mustang");
-        expect(description).toBeInTheDocument();
+        const courseNumber = screen.getByText("18051");
+        expect(courseNumber).toBeInTheDocument();
 
-        const deleteButton = screen.getByTestId("CarTable-cell-row-0-col-Delete-button");
+        const deleteButton = screen.getByTestId("CourseTable-cell-row-0-col-Delete-button");
         expect(deleteButton).toBeInTheDocument();
 
         deleteButton.click();
@@ -99,16 +98,18 @@ describe("CarIndexPage tests", () => {
         expect(mockDelete).toHaveBeenCalledTimes(1);
         expect(mockDelete).toHaveBeenCalledWith(3);
 
-        await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith("/cars"));
+        await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith("/courses"));
 
 
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0];
-        const expectedMessage = `CarIndexPage deleteCallback: {"id":3,"make":"Ford","model":"Mustang","year":"1969"}`;
+        const expectedMessage = `CourseIndexPage deleteCallback: {"id":3,"title":"ENGL 24 - LOCAL AND GLOBAL","courseNumber":"18051"}`;
         expect(message).toMatch(expectedMessage);
         restoreConsole();
 
     });
 
 });
+
+

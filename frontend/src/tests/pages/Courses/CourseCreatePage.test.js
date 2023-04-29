@@ -11,10 +11,10 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const mockAdd = jest.fn();
-jest.mock('main/utils/courseUtilities', () => {
+jest.mock('main/utils/courseUtils', () => {
     return {
         __esModule: true,
-        courseUtilities: {
+        courseUtils: {
             add: () => { return mockAdd(); }
         }
     }
