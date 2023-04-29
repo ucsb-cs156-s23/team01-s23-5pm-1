@@ -22,7 +22,7 @@ const getById = (id) => {
     /* eslint-disable-next-line eqeqeq */
     const index = courses.findIndex((r) => r.id == id);
     if (index === -1) {
-        return { "error": `course with id ${id} not found`};
+        return { "error": `course with id ${id} not found` };
     }
     return { course: courses[index] };
 };
@@ -52,7 +52,7 @@ const update = (course) => {
     }
     courses[index] = course;
     set(courseCollection);
-    return { courseCollection: courseCollection};
+    return { courseCollection: courseCollection };
 };
 
 const del = (id) => {
