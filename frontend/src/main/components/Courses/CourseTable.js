@@ -8,7 +8,7 @@ const showCell = (cell) => JSON.stringify(cell.row.values);
 
 const defaultDeleteCallback = async (cell) => {
     console.log(`deleteCallback: ${showCell(cell)})`);
-    courseUtilities.del(cell.row.values.id);
+    courseUtils.del(cell.row.values.id);
 }
 
 export default function CourseTable({

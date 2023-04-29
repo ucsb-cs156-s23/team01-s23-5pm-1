@@ -15,10 +15,10 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const mockUpdate = jest.fn();
-jest.mock('main/utils/courseUtilities', () => {
+jest.mock('main/utils/courseUtils', () => {
     return {
         __esModule: true,
-        courseUtilities: {
+        courseUtils: {
             update: (_course) => {return mockUpdate();},
             getById: (_id) => {
                 return {

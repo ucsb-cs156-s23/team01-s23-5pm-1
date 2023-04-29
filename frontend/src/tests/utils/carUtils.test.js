@@ -1,7 +1,7 @@
 import { carFixtures } from "fixtures/carFixtures";
-import { carUtilities } from "main/utils/carUtils";
+import { carUtils } from "main/utils/carUtils";
 
-describe("carUtilities tests", () => {
+describe("carUtils tests", () => {
     // return a function that can be used as a mock implementation of getItem
     // the value passed in will be convertd to JSON and returned as the value
     // for the key "cars".  Any other key results in an error
@@ -25,7 +25,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.get();
+            const result = carUtils.get();
 
             // assert
             const expected = { nextId: 1, cars: [] } ;
@@ -45,7 +45,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.get();
+            const result = carUtils.get();
 
             // assert
             const expected = { nextId: 1, cars: [] } ;
@@ -65,7 +65,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.get();
+            const result = carUtils.get();
 
             // assert
             const expected = { nextId: 1, cars: [] };
@@ -87,7 +87,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.get();
+            const result = carUtils.get();
 
             // assert
             expect(result).toEqual(mockCarCollection);
@@ -107,7 +107,7 @@ describe("carUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, cars: threeCars }));
 
             // act
-            const result = carUtilities.getById(idToGet);
+            const result = carUtils.getById(idToGet);
 
             // assert
 
@@ -124,7 +124,7 @@ describe("carUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, cars: threeCars }));
 
             // act
-            const result = carUtilities.getById(99);
+            const result = carUtils.getById(99);
 
             // assert
             const expectedError = `car with id 99 not found`
@@ -140,7 +140,7 @@ describe("carUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, cars: threeCars }));
 
             // act
-            const result = carUtilities.getById();
+            const result = carUtils.getById();
 
             // assert
             const expectedError = `id is a required parameter`
@@ -160,7 +160,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.add(car);
+            const result = carUtils.add(car);
 
             // assert
             expect(result).toEqual(car);
@@ -191,7 +191,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.update(updatedCar);
+            const result = carUtils.update(updatedCar);
 
             // assert
             const expected = { carCollection: { nextId: 5, cars: threeCarsUpdated } };
@@ -216,7 +216,7 @@ describe("carUtilities tests", () => {
             }
 
             // act
-            const result = carUtilities.update(updatedCar);
+            const result = carUtils.update(updatedCar);
 
             // assert
             const expectedError = `car with id 99 not found`
@@ -243,7 +243,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.del(idToDelete);
+            const result = carUtils.del(idToDelete);
 
             // assert
 
@@ -263,7 +263,7 @@ describe("carUtilities tests", () => {
             setItemSpy.mockImplementation((_key, _value) => null);
 
             // act
-            const result = carUtilities.del(99);
+            const result = carUtils.del(99);
 
             // assert
             const expectedError = `car with id 99 not found`
@@ -279,7 +279,7 @@ describe("carUtilities tests", () => {
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, cars: threeCars }));
 
             // act
-            const result = carUtilities.del();
+            const result = carUtils.del();
 
             // assert
             const expectedError = `id is a required parameter`
